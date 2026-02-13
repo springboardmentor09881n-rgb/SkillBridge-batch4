@@ -1,13 +1,16 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Form = () => {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     userName: "",
     email: "",
     password: "",
     fullName: "",
     userType: "",
-    organizationName: "", // Added to state
+    organizationName: "", 
     location: "",
     skills: "",
   });
@@ -148,6 +151,14 @@ const Form = () => {
         >
           Create Account
         </button>
+        <div className="mt-4 text-center">
+          <button
+            onClick={() => navigate("/")}
+            className="text-sm text-gray-500 hover:text-black transition-colors"
+          >
+            Already have an account? Login
+          </button>
+        </div>
       </form>
     </div>
   );

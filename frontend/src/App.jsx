@@ -1,15 +1,24 @@
-import { useState } from "react";
-import "./App.css";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import Form from "./components/form/form";
-
+import Login from "./components/login/Login";
+import "./App.css";
 
 function App() {
   return (
-    <>
-      {/* <h1 class="text-3xl font-bold underline">Hello world!</h1> */}
-      <Form />
-      
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Login />} />
+
+        <Route path="/signup" element={<Form />} />
+
+        <Route path="*" element={<Navigate to="/" />} />
+      </Routes>
+    </Router>
   );
 }
 
